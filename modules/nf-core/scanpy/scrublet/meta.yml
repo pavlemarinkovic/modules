@@ -1,0 +1,64 @@
+name: "scrublet"
+description: Predict cell doublets using a nearest-neighbor classifier of observed transcriptomes and simulated doublets
+keywords:
+  - doublet_detection
+  - single-cell
+  - transcriptomics
+tools:
+  - "scrublet":
+      description: "Doublet prediction in single-cell RNA-sequencing data"
+      homepage: https://scanpy.readthedocs.io/en/stable/api/generated/scanpy.pp.scrublet.html
+      documentation: https://scanpy.readthedocs.io/en/stable/api/generated/scanpy.pp.scrublet.html
+      tool_dev_url: https://github.com/scverse/scanpy
+      doi: 10.1016/j.cels.2018.11.005.
+      licence: ["BSD 3-Clause"]
+      identifier: biotools:scanpy
+
+input:
+  # Only when we have meta
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1', single_end:false ]`
+
+    - h5ad:
+        type: file
+        description: H5ad file
+        pattern: "*.{h5ad}"
+
+output:
+  - h5ad:
+      #Only when we have meta
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+      - "*.h5ad":
+          type: file
+          description: H5ad file
+          pattern: "*.{h5ad}"
+
+  - predictions:
+      #Only when we have meta
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+      - "*.pkl":
+          type: file
+          description: Python pickle file containing predictions
+          pattern: "*.{pkl}"
+
+  - versions:
+      - "versions.yml":
+          type: file
+          description: File containing software versions
+          pattern: "versions.yml"
+
+authors:
+  - "@pavlemarinkovic"
+maintainers:
+  - "@pavlemarinkovic"
