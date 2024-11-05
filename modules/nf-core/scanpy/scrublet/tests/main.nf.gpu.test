@@ -1,0 +1,36 @@
+nextflow_process {
+
+    name "Test Process SCRUBLET"
+    script "../main.nf"
+    process "SCRUBLET"
+
+    // currently disabled
+    // add tags after gpu is enabled
+
+    test("scrublet_gpu") {
+        when {
+            params {
+                use_gpu = true
+            }
+            process {
+                """
+                input_file_path = '/Users/pavlemarinkovic/Documents/test_scdwn/SAMN14430799_raw_matrix_with_batch.h5ad'
+
+                input[0] = Channel.of([
+                    [ id:'test' ],
+                    file(input_file_path, checkIfExists: true)
+                ])
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out.h5ad).match("h5ad_gpu") },
+                { assert snapshot(process.out.predictions).match("predictions_gpu") },
+                { assert snapshot(process.out.versions).match("versions_gpu") }
+            )
+        }
+    }
+}

@@ -9,13 +9,12 @@ nextflow_process {
     tag "scanpy"
     tag "scanpy/scrublet"
 
-
     test("scrublet_normal") {
 
         when {
             process {
                 """
-                input_file_path = 'https://raw.githubusercontent.com/nf-core/test-datasets/scdownstream/samples/SAMN14430799_custom_emptydrops_filter_matrix.h5ad'
+                input_file_path = '/Users/pavlemarinkovic/Documents/test_scdwn/SAMN14430799_raw_matrix_subset_with_batch.h5ad'
 
                 input[0] = Channel.of([
                     [ id:'test' ],
@@ -31,6 +30,30 @@ nextflow_process {
                 { assert snapshot(process.out.h5ad).match("h5ad") },
                 { assert snapshot(process.out.predictions).match("predictions") },
                 { assert snapshot(process.out.versions).match("versions") }
+            )
+        }
+    }
+    test("scrublet_stub") {
+        options "-stub"
+        when {
+            process {
+                """
+                input_file_path = '/Users/pavlemarinkovic/Documents/test_scdwn/SAMN14430799_raw_matrix_subset_with_batch.h5ad'
+
+                input[0] = Channel.of([
+                    [ id:'test' ],
+                    file(input_file_path, checkIfExists: true)
+                ])
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out.h5ad).match("h5ad_stub") },
+                { assert snapshot(process.out.predictions).match("predictions_stub") },
+                { assert snapshot(process.out.versions).match("versions_stub") }
             )
         }
     }

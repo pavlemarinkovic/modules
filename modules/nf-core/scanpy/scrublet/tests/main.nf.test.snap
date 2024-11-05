@@ -2,37 +2,93 @@
     "h5ad": {
         "content": [
             [
-                
+                [
+                    {
+                        "id": "test"
+                    },
+                    "test.h5ad:md5,fa8725968d10852abd22d7fbb3b757d0"
+                ]
             ]
         ],
         "meta": {
             "nf-test": "0.9.1",
-            "nextflow": "23.04.1"
+            "nextflow": "24.10.0"
         },
-        "timestamp": "2024-10-29T14:38:53.153911"
+        "timestamp": "2024-10-30T11:47:45.524343"
+    },
+    "h5ad_stub": {
+        "content": [
+            [
+                [
+                    {
+                        "id": "test"
+                    },
+                    "test.h5ad:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ]
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.1",
+            "nextflow": "24.10.0"
+        },
+        "timestamp": "2024-10-30T11:48:00.636666"
+    },
+    "versions_stub": {
+        "content": [
+            [
+                "versions.yml:md5,795de5a653bf3624043fc660b261912f"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.1",
+            "nextflow": "24.10.0"
+        },
+        "timestamp": "2024-10-30T11:48:00.860557"
+    },
+    "predictions_stub": {
+        "content": [
+            [
+                [
+                    {
+                        "id": "test"
+                    },
+                    "test.pkl:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ]
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.1",
+            "nextflow": "24.10.0"
+        },
+        "timestamp": "2024-10-30T11:48:00.747565"
     },
     "versions": {
         "content": [
             [
-                
+                "versions.yml:md5,11b0b1f5180aeb7d5de3ed97694cc88b"
             ]
         ],
         "meta": {
             "nf-test": "0.9.1",
-            "nextflow": "23.04.1"
+            "nextflow": "24.10.0"
         },
-        "timestamp": "2024-10-29T14:38:53.15995"
+        "timestamp": "2024-10-30T11:47:45.769802"
     },
     "predictions": {
         "content": [
             [
-                
+                [
+                    {
+                        "id": "test"
+                    },
+                    "test.pkl:md5,9e8f722da00ae084ca839c36809e60d8"
+                ]
             ]
         ],
         "meta": {
             "nf-test": "0.9.1",
-            "nextflow": "23.04.1"
+            "nextflow": "24.10.0"
         },
-        "timestamp": "2024-10-29T14:38:53.158519"
+        "timestamp": "2024-10-30T11:47:45.656588"
     }
 }
